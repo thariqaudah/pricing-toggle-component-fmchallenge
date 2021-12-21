@@ -1,0 +1,240 @@
+:root {
+  --primary-light: hsl(236, 72%, 79%);
+  --primary-dark: hsl(237, 63%, 64%);
+  --very-light-grayish-blue: hsl(240, 78%, 98%);
+  --light-grayish-blue: hsl(234, 14%, 74%);
+  --grayish-blue: hsl(233, 13%, 49%);
+  --dark-grayish-blue: hsl(232, 13%, 33%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--very-light-grayish-blue);
+  background-image: url('./images/bg-bottom.svg'), url('./images/bg-top.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: left bottom, right top;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 62px 32px;
+}
+
+.header {
+  text-align: center;
+  margin: 0 auto 78px;
+}
+
+.heading {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--grayish-blue);
+  margin-bottom: 32px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.form p {
+  color: var(--light-grayish-blue);
+  font-weight: 700;
+}
+
+.toggle {
+  appearance: none;
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 100px;
+  background: linear-gradient(
+    to right,
+    var(--primary-light),
+    var(--primary-dark)
+  );
+  cursor: pointer;
+  /* transition: all 0.4s ease; */
+}
+
+.toggle:hover {
+  background: var(--light-grayish-blue);
+}
+
+.toggle::before {
+  content: '';
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  transform: scale(0.8);
+  transition: all 0.4s ease;
+}
+
+.toggle:checked::before {
+  right: 30px;
+}
+
+.pricing-plan {
+  width: 75%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.plan {
+  text-align: center;
+  padding: 32px;
+  background-color: #fff;
+  color: var(--grayish-blue);
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.075);
+}
+
+.plan-basic {
+}
+
+.plan-professional {
+  transform: scale(1.1);
+  background: linear-gradient(
+    to bottom right,
+    var(--primary-light),
+    var(--primary-dark)
+  );
+  color: #fff;
+}
+
+.plan-master {
+}
+
+.plan-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.plan-price {
+  font-size: 64px;
+  font-weight: 700;
+  color: var(--dark-grayish-blue);
+  display: flex;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.plan-price span {
+  font-size: 36px;
+}
+
+.plan-professional .plan-price {
+  color: #fff;
+}
+
+.plan-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.plan-list-item {
+  font-size: 15px;
+  font-weight: 700;
+  border-top: 1px solid var(--light-grayish-blue);
+  padding: 20px;
+}
+
+.plan-list-item:last-child {
+  border-bottom: 1px solid var(--light-grayish-blue);
+}
+
+.plan-btn:link,
+.plan-btn:visited {
+  display: inline-block;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    var(--primary-light),
+    var(--primary-dark)
+  );
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 12px 24px;
+  border: 1px solid currentColor;
+  border-radius: 7px;
+  /* transition: all 0.4s ease; */
+}
+
+.plan-btn:hover,
+.plan-btn:active {
+  background-image: linear-gradient(to right, #fff, #fff);
+  color: var(--primary-dark);
+  border: 1px solid var(--primary-dark);
+}
+
+.plan-professional .plan-btn:link,
+.plan-professional .plan-btn:visited {
+  background: #fff;
+  color: var(--primary-dark);
+}
+
+.plan-professional .plan-btn:hover,
+.plan-professional .plan-btn:active {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 96px;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* Dynamic class */
+.toggle-on {
+  display: flex;
+}
+
+/* Responsive */
+@media (max-width: 375px) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 62px 16px;
+  }
+
+  .pricing-plan {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .plan-professional {
+    transform: scale(1);
+  }
+}
